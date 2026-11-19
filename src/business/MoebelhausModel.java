@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import fileCreatorsZuenkeler.*;
 public class MoebelhausModel {
 	public Moebelstueck moebelstueck;
 
@@ -19,13 +20,31 @@ public class MoebelhausModel {
 	
 	public void leseAusDatei(String typ) throws IOException{
 
-      			BufferedReader ein = new BufferedReader(new FileReader("Moebelstueck.csv"));
+      			/*BufferedReader ein = new BufferedReader(new FileReader("Moebelstueck.csv"));
       			String[] zeile = ein.readLine().split(";");
       			moebelstueck = new Moebelstueck(zeile[0], 
       				zeile[1], 
       				zeile[2], 
       				Float.parseFloat(zeile[3]), 
       				zeile[4].split("_"));
-      				ein.close();
+      				ein.close();*/
+		
+			ReaderCreatorZuenkeler readerCreator = new ConcreteCreator();
+			ReaderProductZuenkeler reader = readerCreator.factoryMethod(typ);
+			String[] zeile = reader.leseAusDatei();
+
+			moebelstueck = new Moebelstueck(zeile[0], 
+	  				zeile[1], 
+	  				zeile[2], 
+	  				Float.parseFloat(zeile[3]), 
+	  				zeile[4].split("_"));
+
+			reader.schliesseDatei();
+			
+				
+		
+		
+		
 	}
 }
+

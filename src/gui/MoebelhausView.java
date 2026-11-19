@@ -145,12 +145,14 @@ public class MoebelhausView {
 	    	@Override
 	        public void handle(ActionEvent e) {
 	       	 	moebelControl.leseAusDatei("csv");
+		     	zeigeInformationsfensterAn("Csv importiert");
 	    	}
 	    });
 	    mnItmTxtImport.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 		    public void handle(ActionEvent e) {
 		     	moebelControl.leseAusDatei("txt");
+		     	zeigeInformationsfensterAn("Txt importiert");
 		    }
     	});
 	    mnItmCsvExport.setOnAction(new EventHandler<ActionEvent>() {

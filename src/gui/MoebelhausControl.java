@@ -59,13 +59,9 @@ public class MoebelhausControl {
 	}
 	public void leseAusDatei(String typ){
     	try {
-      		if("csv".equals(typ)){
+      		
       			moebelModel.leseAusDatei(typ);
-      		}
-       		else{
-	   			moebelView.zeigeInformationsfensterAn(
-	   				"Noch nicht implementiert!");
-	   		}
+
 		}
 		catch(IOException exc){
 			moebelView.zeigeFehlermeldungsfensterAn(
